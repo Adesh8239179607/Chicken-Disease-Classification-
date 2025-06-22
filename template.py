@@ -23,6 +23,7 @@ list_of_files = [
     "requirements.txt",
     "setup.py",
     "reseach/trial.ipynb",
+    "templates/index.html"
 
 
 

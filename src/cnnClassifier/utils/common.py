@@ -1,17 +1,20 @@
+
+
 import os
 from box.exceptions import BoxValueError
 import yaml
 from cnnClassifier import logger
 import json
 import joblib
-from ensure import ensure_annotation
+from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
 import base64
 
 
-@ensure_annotation
+
+@ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
     """
     read yaml file and return 
@@ -38,7 +41,7 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
         raise e    
     
 
-@ensure_annotation
+@ensure_annotations
 def create_directories(path_to_directories: list, verbose: bool = True):
     """
     Create directories if they do not exist.
@@ -57,7 +60,7 @@ def create_directories(path_to_directories: list, verbose: bool = True):
 
 
 
-@ensure_annotation
+@ensure_annotations
 def save_json(path: Path, data: Any):
     """
     Save data to a JSON file.
@@ -76,7 +79,7 @@ def save_json(path: Path, data: Any):
     logger.info(f"Data saved to {path}")        
 
 
-@ensure_annotation
+@ensure_annotations
 def load_json(path: Path) -> ConfigBox:
     """
     Load data from a JSON file.
@@ -95,7 +98,7 @@ def load_json(path: Path) -> ConfigBox:
     return ConfigBox(content)    
 
 
-@ensure_annotation
+@ensure_annotations
 def save_bin(data: Any, path: Path):
     """
     Save data to a binary file using joblib.
@@ -110,7 +113,7 @@ def save_bin(data: Any, path: Path):
     joblib.dump(value=data, filename=path)
     logger.info(f"Binary file saved at: {path}")
 
-@ensure_annotation
+@ensure_annotations
 def load_bin(path: Path) -> Any:
     """
     Load data from a binary file using joblib.
@@ -125,7 +128,7 @@ def load_bin(path: Path) -> Any:
     logger.info(f"Binary file loaded from: {path}")
     return data    
 
-@ensure_annotation
+@ensure_annotations
 def get_size(path: Path) -> str:
     """
     Get the size of a file in bytes.

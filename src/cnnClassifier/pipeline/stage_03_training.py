@@ -1,5 +1,5 @@
 from cnnClassifier.config.configuration import ConfigurationManager
-from cnnClassifier.components.prepare_callbacks import  PrepareCallback
+from cnnClassifier.components.prepare_callbacks import  PrepareCallbacks
 from cnnClassifier.components.training import Training  
 from cnnClassifier import logger
 
@@ -11,8 +11,8 @@ class ModelTrainingPipeline:
 
     def main(self):
          config = ConfigurationManager()
-         prepare_callbacks_config = config.get_prepare_callback_config()  # add 's'
-         prepare_callbacks = PrepareCallback(config=prepare_callbacks_config)  # add 's'
+         prepare_callbacks_config = config.get_prepare_callbacks_config()  # add 's'
+         prepare_callbacks = PrepareCallbacks(config=prepare_callbacks_config)  # add 's'
 
          callback_list = prepare_callbacks.get_tb_ckpt_callbacks()
 
